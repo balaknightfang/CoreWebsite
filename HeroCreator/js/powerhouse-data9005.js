@@ -2401,7 +2401,7 @@ dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructo
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(4, dataPowerAlias['CC'].name, dataPowerAlias['CC'].desc, 3, null, dataPowerAlias['CC'].tip));
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(5, dataPowerAlias['CS'].name, dataPowerAlias['CS'].desc, 1, null, dataPowerAlias['CS'].tip));
 
-dataPower[dataPower.length] = new Power(2, 7, 0, "Particle Blaster", 0.5, 5, 0, 0, [28,56], 0, "Targets foe/100 feet", "Ranged Damage/Plasma Burn/Blast", "Single Target Particle Damage<br /><br />Chance to Apply Plasma Burn %PlasmaBurn%<br /><br />Refreshes the duration of your Plasma Burn stacks.");
+dataPower[dataPower.length] = new Power(2, 7, 0, "Particle Blaster", 0.5, 5, 0, 0, [28,56], 0, "Targets foe/100 feet", "Ranged Damage/Plasma Burn/Blast", "Single Target Particle Damage<br /><br />Chance to Apply Plasma Burn. %PlasmaBurn%<br /><br />Refreshes the duration of your Plasma Burn stacks.");
 dataPower[dataPower.length-1].insertAdvantage("Disintegration Ray", 2, null, "+ When fully charged, applies Disintegrate to your target. %Disintegrate%");
 dataPower[dataPower.length-1].insertAdvantage("Mending Protocol", 2, null, "The lower your health is, the higher the chance that the base damage of this attack will Heal you instead of dealing damage. This effect only applies to the initial damage this power deals, and not any bonus damage chances.");
 dataPower[dataPower.length-1].insertAdvantage("Radioactive Decay", 2, null, "Fully charging this power spreads any of your Plasma Burn and Disintegrate effects to nearby targets, as well as dealing additional Particle damage<br /><br />Refreshes the duration of your Plasma Burn and Disintegrate effects on targets that these effects were spread to.");
@@ -2468,6 +2468,8 @@ dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructo
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(1, dataPowerAlias['R2'].name, dataPowerAlias['R2'].desc, 2, null, dataPowerAlias['R2'].tip));
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(2, dataPowerAlias['R3'].name, dataPowerAlias['R3'].desc, 2, 1, dataPowerAlias['R3'].tip));
 
+dataPower[dataPower.length] = new Power(2, 7, 1, "Radiation Suit", 0, 0, 0, 0, 0, 0, "Passive (Offense)", "Slotted Offensive Passive", "+ Provides a small amount of damage absorbption. This effect scales with your Super Stats.<br /><br />+Increase your Energy damage, scaling with your super stats.<br /><br />+ Increases your resistance to all Energy damage.<br />+ You gain energy every time you take energy damage, scaling with your Recovery.<br />+ Chance to apply Plasma Burn to targets.%PlasmaBurn%");
+
 dataPower[dataPower.length] = Power.legacyConstructor(dataPower.length, 'Sonic Device', '<div class="Sprite Gadgeteering_SonicDevice"></div>&nbsp;Sonic Device', 2, 7, pow++, 1, 'Gadgeteering, Self On-Next-Hit Damage and Stun<br /><br />Requires 1 power from Gadgeteering or 2 non-Energy Building powers from any framework.<br /><br />Sonic Device adds a focused Sonic pulse to your next attack, increasing the damage of the attack and adding the potential to Stun your target.');
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(0, null, null, null, null, null));
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(1, dataPowerAlias['R2'].name, dataPowerAlias['R2'].desc, 2, null, dataPowerAlias['R2'].tip));
@@ -2480,8 +2482,26 @@ dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructo
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(2, dataPowerAlias['R3'].name, dataPowerAlias['R3'].desc, 2, 1, dataPowerAlias['R3'].tip));
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(3, 'Rejuvinating Injectors', 'Rejuvinating Injectors', 2, null, 'Causes the activation of Nanobot Swarm to grant you a Heal over Time Buff for several seconds.'));
 
+dataPower[dataPower.length] = Power.legacyConstructor(dataPower.length, 'Toxic Nanites', '<div class="Sprite Gadgeteering_ToxicNanites"></div>&nbsp;Toxic Nanites', 2, 7, pow++, 1, 'Gadgeteering, Self On-Next-Hit DoT<br /><br />Requires 3 powers from Gadgeteering or 4 non-Energy Building powers from any framework.<br /><br />Toxic Nanites laces your next attack with deadly nanites, infecting your target and dealing Toxic Damage over Time.');
+dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(0, null, null, null, null, null));
+dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(1, dataPowerAlias['R2'].name, dataPowerAlias['R2'].desc, 2, null, dataPowerAlias['R2'].tip));
+dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(2, dataPowerAlias['R3'].name, dataPowerAlias['R3'].desc, 2, 1, dataPowerAlias['R3'].tip));
+dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(3, 'Nerve Damage', 'Nerve Damage', 2, null, 'Adds a Snare to the Toxic Nanite effect, reducing the movement speed of the target for the duration of the DoT effect. When using an AoE attack with Toxic Nanites, the duration of the Snare is reduced.'));
+
+dataPower[dataPower.length] = new Power(2, 7, 1, "Radiation Poisoning", 0, 0, 0, 0, 0, 30, "Targets Self", "On-Next-Hit/Ranged Damage/Plasma Burn", "Adds Particle damage to your next damaging attack.<br /><br />Applies Plasma Burn to affected targets. %PlasmaBurn%<br /><br />This bonus will expire if not used within a certain amount of time<br /><br />Damage is reduced if used against multiple targets.<br /><br />Using this power places all other On-Next-Hit powers on cooldown.");
+dataPower[dataPower.length-1].insertAdvantage("Particle Blast", 2, null, "This power now deals less damage against a single target, but deals additional damage when used against multiple targets.");
+dataPower[dataPower.length-1].insertAdvantage("Sapped Strength", 2, null, "Adds a Root to this ability, preventing targets moving for a short amount of time");
+dataPower[dataPower.length-1].insertAdvantage("Extra Radiated", 2, null, "When used against a single target, adds another stack of Plasma Burn<br /><br />When used against multiple targets, teh additional stack has a lowered chance of applying.");
+
+dataPower[dataPower.length] = new Power(2, 7, 1, "Technological Prowess", 1, 2.5, 0, 2.5, 20, 0, "Form (Intelligence)", "Buff/Form/Expertise", "Gives you a stacking buff that increases your ranged damage, as well as your melee damage to a lesser degree.<br /><br />+ You gain a stack each time one of your technology powers is fully charged, maintained, or comes off of cooldown<br />+ Each time you gain a stack, existing stacks are refreshed and you gain energy.<br />+ Stacks up to 8 times, lasts 20 seconds, and can only gain 1 stack every 4 seconds.<br />- Increases energy costs by 10%.", Power.TYPE_FORM);
+
+dataPower[dataPower.length] = new Power(2, 7, 1, "Technological Advancements", 1, 2.5, 0, 2.5, 20, 0, "Form (Intelligence)", "Buff/Form/Medical Expertise", "Gives you a stacking buff that increases your healing, as well as your damage to a lesser degree.<br /><br />+ You gain a stack each time one of your technology powers is fully charged, maintained, or comes off of cooldown<br />+ Each time you gain a stack, existing stacks are refreshed and you gain energy.<br />+ Stacks up to 8 times, lasts 20 seconds, and can only gain 1 stack every 4 seconds.<br />- Increases energy costs by 10%.", Power.TYPE_FORM);
+
 dataPower[dataPower.length] = dataPowerAlias["Concentration"].replicate(2, 7);
 dataRequireGroupPower[dataPower.length-1] = 'technology';
+
+dataPower[dataPower.length] = new Power(2, 7, 1, "Radiation Shield", 1, 0, 0, 0, 0, 0, "Targets Self", "Block", "While blocking, grants 325% resistance to Energy damage and 250% to all other damage types. <br /><br />Increases your resistance to Holds and Knocks, and reduces your movement speed.");
+dataPower[dataPower.length-1].insertAdvantage("Redirect Energy", 2, null, "+ Reduces the Cooldown on your Technology Powers by 1 sec every tiem you take damage while blocking. Can occur once every 1 sec.<br /><br />- Does not affect Ultimate or Active powers.");
 
 dataPower[dataPower.length] = new Power(2, 7, 1, "Molecular Self-Assembly", 0, 0, 0, 0, 0, 0, "Energy Unlock", "Innate Passive/Intelligence/Recovery", "+ Generates energy every time one of your powers comes off cooldown.<br />+ Restores energy every 3 seconds over 6 seconds.<br />+ This ability does not stack, but additional applications will refresh the duration.<br />+ The energy gained scales with your Intelligence, and to a lesser degree, your Recovery.", Power.TYPE_ENERGY_UNLOCK);
 dataEnergyUnlockPower[dataPower.length-1] = true;
@@ -2530,11 +2550,15 @@ dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructo
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(3, dataPowerAlias['NG'].name, dataPowerAlias['NG'].desc, 2, null, dataPowerAlias['NG'].tip));
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(4, dataPowerAlias['CS'].name, dataPowerAlias['CS'].desc, 1, null, dataPowerAlias['CS'].tip));
 
-dataPower[dataPower.length] = Power.legacyConstructor(dataPower.length, 'Toxic Nanites', '<div class="Sprite Gadgeteering_ToxicNanites"></div>&nbsp;Toxic Nanites', 2, 7, pow++, 2, 'Gadgeteering, Self On-Next-Hit DoT<br /><br />Requires 3 powers from Gadgeteering or 4 non-Energy Building powers from any framework.<br /><br />Toxic Nanites laces your next attack with deadly nanites, infecting your target and dealing Toxic Damage over Time.');
-dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(0, null, null, null, null, null));
-dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(1, dataPowerAlias['R2'].name, dataPowerAlias['R2'].desc, 2, null, dataPowerAlias['R2'].tip));
-dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(2, dataPowerAlias['R3'].name, dataPowerAlias['R3'].desc, 2, 1, dataPowerAlias['R3'].tip));
-dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(3, 'Nerve Damage', 'Nerve Damage', 2, null, 'Adds a Snare to the Toxic Nanite effect, reducing the movement speed of the target for the duration of the DoT effect. When using an AoE attack with Toxic Nanites, the duration of the Snare is reduced.'));
+dataPower[dataPower.length] = new Power(2, 7, 2, "Cloaking Device", 1, 0, 0, 0, 0, 120, "Affects foe that is not destructible (20 Max)/50 foot sphere", "Threat Wipe/Stealth", "Wipes all of your threat from nearby foes.<br /><br />Briefly places you in Stealth<br /><br />Puts all other threat wipe abilites on cooldown");
+dataPower[dataPower.length-1].insertAdvantage("Unknown Threat", 2, null, "Activating this power will cause you to generate less threat for a short time.");
+
+dataPower[dataPower.length] = new Power(2, 7, 2, "Electro Magnet", .67, 0, 0, 0, 47, 10, "Targets Foe", "Ranged AoE Damage/DoT/Reverse Repel/Rune", "Creates a[sic] Electro Magnet for 10 sec.<br /><br />Deals Particle damage to nearby targets<br /><br />Pulls nearby targets twoards the Electro Magnet<br /><br />When this power expires, leaves behind a Static Field for a short duration, which grants nearby allies energy and siphons power from foes.<br /><br />The amount of energy Static Field grants additionally sacles off of your recovery by a small amount<br /><br />You cannot have more than one Rune out at a time.<br /><br />Summoning this Rune counts as applying an Enchantment.<br /><br />This power cannot critically hit.");
+dataPower[dataPower.length-1].insertAdvantage("Sparks", 1, null, "Chance to apply Negative Ions to affected targets.");
+dataPower[dataPower.length-1].insertAdvantage("Redirect Power", 1, null, "The static field now applies at your location.");
+dataPower[dataPower.length-1].insertAdvantage("Reactor", 2, null, "Chance to apply Plasma Burn to affected targets. %PlasmaBurn%");
+dataPower[dataPower.length-1].insertStockAdvantages("AM");
+
 
 dataPower[dataPower.length] = Power.legacyConstructor(dataPower.length, 'Miniaturization Drive', '<div class="Sprite Gadgeteering_MiniaturizationDrive"></div>&nbsp;Miniaturization Drive', 2, 7, pow++, 2, 'Gadgeteering, Self On-Next-Hit Debuff<br /><br />Requires 3 powers from Gadgeteering or 4 non-Energy Building powers from any framework.<br /><br />Miniaturization Drive charges your next attack with a miniaturization field, causing the target of the attack to shrink in size and strength.');
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(0, null, null, null, null, null));
@@ -2556,6 +2580,10 @@ dataPower[dataPower.length] = Power.legacyConstructor(dataPower.length, 'Attack 
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(0, null, null, null, null, null));
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(1, dataPowerAlias['R2'].name, dataPowerAlias['R2'].desc, 2, null, dataPowerAlias['R2'].tip));
 dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructor(2, dataPowerAlias['R3'].name, dataPowerAlias['R3'].desc, 2, 1, dataPowerAlias['R3'].tip));
+
+dataPower[dataPower.length] = new Power(2, 7, 2, "Medical Beam", .5, 5, .5, 0, 0, 0, "Targets Friend", "Heal/Buff", "Continuously heals the target while maintained.<br /><br />When targeting someone in Hybrid, Ranged, or Melee Role, increases the amount of damage they deal<br /><br />When targeting someone in Tank or Support Role, increases their resistance to damage<br /><br />NOTE: CURRENTLY BUGGED AND IS BASED ON THE USER'S ROLE, NOT TARGET'S");
+dataPower[dataPower.length-1].insertAdvantage("Rejuvenator", 2, null, "While maintaing this power, if one of yoru powers comes off of cooldown, boosts the amount of healing this power does by 50% for 6 seconds.");
+dataPower[dataPower.length-1].insertAdvantage("Field Medic", 2, null, "In addition to healing your target, you now also heal nearby allies and yourself for a small amount.");
 
 dataPower[dataPower.length] = new Power(2, 7, 3, "Sonic Beam", 0.5, 5, 5, 0, [35,22], 0, "Targets foe/100 feet", "Ranged Damage/Disorient", "Deals Sonic damage to the target and Disorient %Disorient%");
 dataPower[dataPower.length-1].insertAdvantage("Sonic Bombardment", 2, null, "+ While you maintain this power, the cooldown on your Gadgeteer powers will be reduced by .25 seconds every hit.<br /><br />-Does not affect Ultimate or Active Powers.");
@@ -2584,8 +2612,16 @@ dataPower[dataPower.length-1].advantageList.push(PowerAdvantage.legacyConstructo
 
 dataPower[dataPower.length] = new Power(2, 7, 3, "Detonator Switch", 1, 0, 0, 0, 0, 45, "Targets Self", "Ranged AoE Damage", "All of your current Gadgeteer Pets are defeated and place on a 5 sec cooldown. This power has different effects based on which pets were affected.<br /><br />Particle Bomb: Causes Particle Bomb to immediately detonate and increases teh damage radius to 25 ft<br /><br />Munitions Bots: Deals particle damage to up to 5 targets within 15 ft.<br /><br />Attack Toys: Deals Particle Damage to up to 5 targets within 15ft.<br /><br />Attack Toys Clones: Deals less Particle Damage to up to 5 targets wtihin 15 ft.<br /><br />Support Drones: Heals allies (Support Mode) or deals particle damage (Turret Mode)");
 
-dataPower[dataPower.length] = new Power(2, 7, 3, "Plasma Cannon", .67, 1.83, 1.83, 0, 0, 20, "Targets Foe (5 Max)/50 feet; 2 foot Cylinder", "Ranged AoE Damage/Stun", "Deals Particle damage to targets in front of you.<br /><br />Chance to Stun targets.<br /><br />Refreshes the duration of your Plasma Burn and Disintegrate.<br /><br />Deasl additional damage to targets affected by Radiation effects.<br /><br />Must be fully charged.");
+dataPower[dataPower.length] = new Power(2, 7, 3, "Plasma Cannon", .67, 1.83, 0, 0, 0, 20, "Targets Foe (5 Max)/50 feet; 2 foot Cylinder", "Ranged AoE Damage/Stun", "Deals Particle damage to targets in front of you.<br /><br />Chance to Stun targets.<br /><br />Refreshes the duration of your Plasma Burn and Disintegrate.<br /><br />Deasl additional damage to targets affected by Radiation effects.<br /><br />Must be fully charged.");
 dataPower[dataPower.length-1].insertAdvantage("Recharge", 2, null, "%StimPack%");
+dataPower[dataPower.length-1].insertStockAdvantages("AM/CS");
+
+dataPower[dataPower.length] = new Power(2, 7, 3, "Plasma Radiation", .67, 4, .5, 0, [29,17], 0, "Targets Foe (5 Max)/50 feet; 30 degree Cone", "Ranged AoE Damage/Plasma Burn", "Deals Particle damage to targets in front of you.<br /><br />Chance to apply Plasma Burn. %PlasmaBurn%");
+dataPower[dataPower.length-1].insertAdvantage("Dubious Custom Work", 2, null, "Increases this power's base damage by 50% but there is a 5% chance every hit that it will go on cooldown for 5 sec.");
+dataPower[dataPower.length-1].insertAdvantage("Corrosion", 2, null, "Increases the chance to apply Plasma Burn.<br /><br />Chance is guaranteed when fully maintained.");
+dataPower[dataPower.length-1].insertAdvantage("Swelting Heat", 2, null, "Chance to Snare targets, reducing their movement speed for 16 sec.<br /><br />Roots targets when fully maintained.");
+dataPower[dataPower.length-1].insertAdvantage("Burn Bright", 2, null, "Refreshes the duration of all of your Plasma Burn stacks.");
+dataPower[dataPower.length-1].insertAdvantage("Light Mend", 2, null, "Refreshes the duration of your Disintegrate debuff.");
 dataPower[dataPower.length-1].insertStockAdvantages("AM/CS");
 
 dataPower[dataPower.length] = Power.legacyConstructor(dataPower.length, 'Resurrection Serum', '<div class="Sprite Gadgeteering_ResurrectionSerum"></div>&nbsp;Resurrection Serum', 2, 7, pow++, 3, 'Gadgeteering, 15 foot Sphere PBAoE Revive<br /><br />Requires 5 powers from Gadgeteering or 6 non-Energy Building powers from any framework.<br /><br />Resurrection Serum is a carefully crafted concoction administered to fallen allies to return them to action.');
@@ -2972,6 +3008,13 @@ dataPower[dataPower.length-1].insertStockAdvantages("AM");
 dataPower[dataPower.length] = new Power(2, 10, 0, "Lightspeed Strike", [0.3,0.4,0.67], 0, 0, 0, [18,16,14], 0, "Targets foe (5 max)/10 feet/120-120-30 degree Cone", "Melee Damage/Combo/Plasma Burn", "Deals Particle damage to the target and has a 15/15/50% chance (based on combo hit) to apply a stack of Plasma Burn to the target.  This chance is doubled if you are affected by Unity.  %PlasmaBurn%");
 dataPower[dataPower.length-1].insertAdvantage("Particle Acceleration", 2, null, "+ Finishing the Lightspeed Strike combo applies Disintegrate.<br />+Disintegrate increases the Particle and Energy damage affected foes take for a short while.<br />+ Disintegrate is a type of Radiation");
 dataPower[dataPower.length-1].insertAdvantage("Legacy Code", 2, null, "Finishing the Lightspeed Strike combo Knocks Down your foes.");
+dataPower[dataPower.length-1].insertStockAdvantages("AM/CS");
+
+dataPower[dataPower.length] = new Power(2, 10, 0, "Eye Lasers", .5, 2, 0, 0, [27,55], 0, "Targets Foe/25 Feet or 100 feet", "Ranged or Melee Damage/Plasma Burn/Blast", "Single target Particle damage.<br /><br />This power's damage is considered to be Melee damage when you are within melee range.<br /><br />Chance to apply Plasma Burn.<br /><br />Refreshes the duration of your Plasma Burn stacks. %PlasmaBurn%");
+dataPower[dataPower.length-1].insertAdvantage("Disintegration Ray", 2, null, "+ When fully charged, applies Disintegrate. %Disintegrate%");
+dataPower[dataPower.length-1].insertAdvantage("Radioactive Decay", 2, null, "Fully charging this power spreads any of your Plasma Burn and Disintegrate effects to nearby targets, as well as dealing additional Particle damage<br /><br />Refreshes the duration of your Plasma Burn and Disintegrate effects on targets that these effects were spread to.");
+dataPower[dataPower.length-1].insertAdvantage("Blinding Shot", 2, null, "When partially charged, this power now has a scaling chance to Knock Down your target.<br /><br />When fully charged, this power now stuns your target.");
+dataPower[dataPower.length-1].insertAdvantage("Download", 2, null, "This power applies Download to you.  %Download%");
 dataPower[dataPower.length-1].insertStockAdvantages("AM/CS");
 
 dataPower[dataPower.length] = new Power(2, 10, 1, "Glance", 0.5, 0, 0, 0, 18, 0, "Targets foe/10 feet", "Melee Damage/Stun", "Deals single target Particle damage and briefly Stuns the target.");
