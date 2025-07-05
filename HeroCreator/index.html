@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from aesica.net/co/beta/herocreator.htm by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Jun 2025 04:50:45 GMT -->
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-55064869-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-55064869-1');
+	</script>
+	<title>HeroCreator</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate, max-age=0" />
+	<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="js/bsodf195.css?v=2.1" />
+	<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="js/powerhouse317f.css?v=3.43" />
+	<link rel="stylesheet" type="text/css" charset="utf-8" media="none" href="js/hc-powderhouse317f.css?v=3.43" id="themePowderhouse" class="altTheme" />
+	<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="js/hc-light317f.css?v=3.43" id="themeLight" class="altTheme" />
+	<script type="text/javascript" src="js/spritesheet8935.js?v=3.42"></script>
+	<script type="text/javascript" src="js/hc-extender317f.js?v=3.43"></script>
+	<script type="text/javascript" src="js/powerhouse-data9005.js?v=37"></script>
+	<script type="text/javascript" src="js/hc-data9005.js?v=37"></script>
+	<script type="text/javascript" src="js/hc-data-harness8935.js?v=3.42"></script>
+	<script type="text/javascript" src="js/powerhouse-version9005.js?v=37"></script>
+	<script type="text/javascript" src="js/powerhouse232f.js?v=3.44"></script>
+</head>
+<body>
+	<div id="body" class="main">
+		<div id="header" style="display:none">
+				<!--<a id="patreonButton" href="https://www.patreon.com/bePatron?u=23396419" target="_blank"><img src="img/patreon-button.png" class="mediaButton" alt="Become a Patron!" /></a>-->
+				<div class="title">
+				<a id="title" onclick="Aesica.HCEngine.showResetDataOptions();"><img id="titleImage" src="img/hc-logo.png" alt="HeroCreator" /></a>
+				<span id="titleDebugMode" class="redText"></span>
+			</div>
+			<div id="titleMessage" class="titleMessageWorking">&nbsp;</div>
+			<div id="alertMessage" class="alertMessage"></div>
+			<div class="menu">
+				<a id="showViewData" class="button" onclick="Aesica.HCEngine.refreshSaveList(); showView('Data')" style="margin-right: 1em;">Data</a>
+				<a id="showViewEdit" class="button" onclick="showView('Edit')" style="margin-right: 1em;">Edit</a>
+				<a id="showViewReference" class="button" onclick="showView('Reference')" style="display: none;">Reference</a>
+				<a id="showViewPreview" class="button" onclick="showView('Preview')" style="margin-right: 1em;">Preview</a>
+				<a id="showViewExport" class="button" onclick="showView('Export')" style="margin-right: 1em;">Export</a>
+				<a id="showViewPrefs" class="button" onclick="showView('Prefs')" style="margin-right: 1em;">Settings</a>
+				<a id="showViewHelp" class="button" onclick="showView('Help')" style="margin-right: 1em;">Help</a>
+				<a id="showViewAbout" class="button" onclick="showView('About')" style="margin-right: 1em;">About</a>
+				<a id="showViewDebug" class="button" onclick="showView('Debug')" style="visibility: hidden;">Debug</a>
+			</div>
+		</div>
+
+		<noscript>Javascript must be enabled for this page to work.</noscript>
+
+		<div id="selectionWindow" class="selection" style="display: none;">
+			<div id="selectionWindowHeaderStrip">
+				<span id="selectionWindowHeader"></span>
+				<a class="closeButton" onclick="selectClear()">❌</a>
+			</div>
+			<div id="selectionWindowMenu"></div>
+			<div id="selectionWindowContainer"></div>
+		</div>
+
+		<div id="popup" class="popup" style="display:none">
+		</div>
+
+<div id="viewEdit" class="edit" style="display:none">
+	<div class="section">
+		<div id="leftName" class="left">
+			<table class="spacedTable">
+				<tr>
+					<td>
+						<a id="displayName" class="button" onclick="editName()"><span style="margin-right: 1em;">Name:</span></a>
+					</td>
+					<td>
+						<div id="sectionDisplayName">
+							<a class="button" onclick="editName();"><span id="fieldName" class="buttonText"> </span></a>
+						</div>
+						<div id="sectionEditName" style="display:none">
+							<form id="formName" onsubmit="changeName(); return false;">
+								<input id="editName" type="text" style="width: 250px;" value="" />
+							</form>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="link" class="left">
+							<span class="link"><a id="buildLink" class="button" href=".html">Link:</a></span>
+						</div>
+					</td>
+					<td>
+						<input id="buildLinkRef" style="width: 250px;" type="text" onclick="autoHighlight('buildLinkRef');" />
+					</td>
+				</tr>
+			</table>
+			<div class="right">
+				<span class="link"><a id="restorePrevBuild" class="button" style="display:none" onclick="restorePrevBuild()">Restore previous build</a></span>
+			</div>
+			<div style="clear:both"></div>
+		</div>
+
+
+		<div id="rightArchetype" class="right">
+			<div id="sectionArchetype"></div>
+			<div id="sectionRole" class="section"></div>
+		
+		</div>
+		<div style="clear:both"></div>
+	</div>
+
+	<div>
+		<div id="leftBody" class="left">
+			<div id="sectionSuperStat" class="section"></div>
+
+			<div id="sectionInnateTalent" class="section"></div>
+
+			<div id="sectionTalent" class="section"></div>
+
+			<div id="sectionTravelPower" class="section"></div>
+
+			<div id="sectionDevice" class="section"></div>
+		</div>
+
+		<div id="rightBody" class="right">
+			<div id="sectionPower" class="section"></div>
+			
+			<div class="section note">Advantage points: <span id="advantagePoints">0</span></div>
+
+			<div id="sectionBuildNote" class="section"></div>
+		</div>
+
+		<div style="clear:both"></div>
+	</div>
+
+	<div id="sectionSpecializations"></div>
+</div>
+
+<div id="viewData" style="display: none;">
+	<h3>Load/Save Data</h3>
+	<div id="saveDataContainer" class="pageSection"></div>
+</div>
+
+<div id="viewReference" style="display: none">
+	<h3>Reference Sheet</h3>
+	<div id="damageTypeList" class="pageSection"></div>
+</div>
+
+<div id="viewPreview" style="display:none">
+	<h3>Forum Preview</h3>
+	<div id="forumPreview" class="pageSection preview">
+	</div>
+</div>
+
+<div id="viewExport" style="display:none">
+	<h3>Forum Export</h3>
+	<div id="leftName" class="left">
+		<a onclick="autoHighlight('forumText');">Quick Select</a>
+	</div>
+	<div id="rightType" class="right" style="padding-top: 1.2em">
+		<span class="note">
+			Export Type:&nbsp;
+			<a id="exportType_phpbbs" class="button" onclick="selectForumExportType('phpbbs')" onmouseover="popupL1(app.system.export.tip[app.system.export.type.bbcode]);" onmouseout="popout();">BBCode</a> -
+			<a id="exportType_markdown" class="button" onclick="selectForumExportType('markdown')" onmouseover="popupL1(app.system.export.tip[app.system.export.type.markdown]);" onmouseout="popout();">Markdown</a> -
+			<a id="exportType_txt" class="button" onclick="selectForumExportType('txt')" onmouseover="popupL1(app.system.export.tip[app.system.export.type.none]);" onmouseout="popout();">Plain Text</a> -
+			<a id="exportType_html" class="button" onclick="selectForumExportType('html')" onmouseover="popupL1(app.system.export.tip[app.system.export.type.html]);" onmouseout="popout();">HTML</a> -
+			<a id="exportType_codeprecated" class="button" onclick="selectForumExportType('codeprecated')" onmouseover="popupL1(app.system.export.tip[app.system.export.type.htmlForum]);" onmouseout="popout();">Pseudo-HTML</a>
+		</span>
+	</div>
+	<div style="clear:both"></div>
+	<textarea id="forumText" class="shadow" readonly="readonly">
+	</textarea>
+</div>
+
+<div id="viewPrefs" class="prefs" style="display:none">
+	<h3>Settings</h3>
+	<div class="pageSection">
+		<table class="settingsTable">
+			<tr>
+				<td>
+					<div id="sectionDisplayFont">
+						<a id="displayFont" class="button" onclick="Aesica.HCEngine.editFont();">Font:&nbsp; <span id="prefFontFamilyName" class="buttonText"> </span></a>
+						<a id="customFontFamily" class="button" onclick="selectPrefFontFamily()" style="margin-left: 1.5em; margin-right: 1.5em;">Select Preset</a>
+						<a id="prefFontSmaller" class="button" onclick="selectPrefFontSize(-1)"><span id="fontMinus"></span></a>
+						<span id="prefFontSize" class="buttonText" style="margin-left: 0.3em; margin-right: 0.3em;"></span>
+						<a id="prefFontLarger" class="button" onclick="selectPrefFontSize(1)"><span id="fontPlus"></span></a>
+					</div>
+					<div id="sectionEditFont" style="display:none;">
+						<form id="formFont" onsubmit="Aesica.HCEngine.changeFont(); return false;">
+							<a id="cancelFont" class="selectedButton" onclick="Aesica.HCEngine.cancelFont()">Font:</a>&nbsp; <input id="editFont" type="text" size="40" value="" />
+						</form>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a id="setTheme" class="button" onclick="//selectPrefTheme();">Theme: <span id="prefThemeValue" class="buttonText">NYI</span></a><br />
+					<span class="note">Select from a list of themes and skins.</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a id="prefPopupTips" class="button" onclick="selectPrefPopupTips();">Tooltips: <span id="prefPopupTipsValue" class="buttonText"> </span></a><br />
+					<span class="note">Changes how additional information is displayed via user interaction.</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a id="iconSize" class="button" onclick="selectPrefIconSize();">Power Icon Size: <span id="prefIconSize" class="buttonText">0 x 0</span></a><br />
+					<span class="note">Adjust the size of the various ability, stat, talent, etc icons.  Will probably turn out hideous unless you know what you're doing.</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a id="iconSizeAT" class="button" onclick="selectPrefIconSizeAT();">Archetype Icon Size: <span id="prefIconSizeAT" class="buttonText">0 x 0</span></a><br />
+					<span class="note">Adjust the size of the Archetype icons.  Will probably turn out hideous unless you know what you're doing.</span>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<a id="resetPrefDefaults" class="button" onclick="selectResetPrefDefaults();">Restore Default Settings</a><br />
+					<span class="note">This will restore all settings to their default values and refresh the page.</span>
+				</td>
+			</tr>
+		</table>
+		<!-- <p>
+		<a id="prefAnalytics" class="button" onclick="selectPrefAnalytics()">Submit usage statistics to Google Analytics:&nbsp; <span id="prefAnalyticsValue" class="buttonText"> </span></a>
+		</p> -->
+	</div>
+</div>
+
+<div id="viewHelp" style="display:none">
+	<h3>Quick Start Guide</h3>
+	<div class="pageSection">
+		<ul>
+			<li><a onclick="document.getElementById('help-views').scrollIntoView(true)">Menu Options</a></li>
+			<li><a onclick="document.getElementById('help-name').scrollIntoView(true)">Name Character</a></li>
+			<li><a onclick="document.getElementById('help-archetype').scrollIntoView(true)">Select Archetype</a></li>
+			<li><a onclick="document.getElementById('help-abilities').scrollIntoView(true)">Select Abilities</a></li>
+			<li><a onclick="document.getElementById('help-save').scrollIntoView(true)">Save Character</a></li>
+			<li><a onclick="document.getElementById('help-export').scrollIntoView(true)">Forum Preview and Export</a></li>
+			<li><a onclick="document.getElementById('help-prefs').scrollIntoView(true)">Preferences</a></li>
+			<li><a onclick="document.getElementById('help-reset').scrollIntoView(true)">Reset</a></li>
+		</ul>
+	</div>
+	<div class="pageSection">
+		<h3 id="help-views">Menu Options</h3>
+		<p>
+			There are five menu options at the top of the page:
+		</p>
+		<ul>
+			<li><b>Data</b> allows you to load and save character data.</li>
+			<li><b>Edit</b> is where you build your character.</li>
+			<li><b>Preview</b> shows you how it will look in a forum post.</li>
+			<li><b>Export</b> displays the text to paste in a forum post.</li>
+			<li><b>Settings</b> is where you can set a few preferences.</li>
+			<li><b>Help</b> is where you are now.</li>
+			<li><b>About</b> contains author, background, and legal information.</li>
+		</ul>
+	</div>
+	<div class="pageSection">
+		<h3 id="help-name">Name Character</h3>
+		<p>
+			To give your character a name, click on <b>Name</b> in the upper left and type
+			a name in the box.  Press Enter when done to confirm the name.
+		</p>
+		<p>
+			Giving your character a name makes it much easier to find and recognize after you save it.
+		</p>
+	</div>
+	<div class="pageSection">
+		<h3 id="help-archetype">Select Archetype</h3>
+		<p>
+			Archetype defaults to <b>Freeform</b>.  If you would like to change it to one of
+			the archetypes found in the game, click on the <b>archetype icon</b> in the upper
+			right and make your selection.
+		</p>
+		<p>
+			After selecting an archetype, the appropriate Super Stats, Innate Talent, and
+			Powers will be automatically set.  The powers you can change are lighter
+			in color.
+		</p>
+		<p>
+			If you switch back to <b>Freeform</b> the selections will remain, but you
+			can now change them.
+		</p>
+		<p>
+			Note:  Changing your Archetype will overwrite most of your selections, so
+			make sure to save copy of any work you would like to keep.
+		</p>
+	</div>
+	<div class="pageSection">
+		<h3 id="help-abilities">Select Abilities</h3>
+		<p>
+			Click on the Super Stat, Innate Talent, or Talent you want to set or
+			modify on the left side of the page.  A pop-up window will appear with
+			your options.  Make your selection.
+		</p>
+		<p>
+			The Travel Powers are found on the lower left side of the page.  The
+			regular Powers are found on the right right side of the page.  Click on
+			the power you want to set or modify.  A pop-up window will appear with
+			your options.  Make your selection.
+		</p>
+		<p>
+			Once you have selected a Power you can click the <b>(advantages)</b> link to
+			the right of it to set the advantages for that power.  Advantages can be
+			toggled on and off from the pop-up window.
+		</p>
+		<p>
+			Selections that are darker in color have already been taken, however,
+			clicking on them will swap them with the currently selected field.
+		</p>
+		<p>
+			Selections that are invalid choices, due to the game rules, are gray in
+			color and you cannot select them.
+		</p>
+		<p>
+			Specializations are found at bottom of the page.  The first one is
+			automatically set based on your Primary Super Stat.  The next two are
+			chosen by you when you click on them.  Just like the other abilities, use
+			the pop-up window to set your options.
+		</p>
+		<p>
+			The options for the Mastery Specialization will be populated when the
+			other trees have be set.  Just click on the one you want from the pop-up
+			window.
+		</p>
+		<p>
+			On the pop-up windows, clicking <b>Clear</b> will deselect that item.  <b>Cancel</b>
+			or clicking outside of the box will cancel the selection.  <b>Insert</b> will insert
+			a power at that location (moving all powers below it down a level), and
+			<b>Delete</b> will remove the selected power (moving all powers below it up a
+			level).
+		</p>
+		<p>
+			The number to the left of an attribute is the level needed to take it.
+		</p>
+	</div>
+	<div class="pageSection">
+		<h3 id="help-save">Save Character</h3>
+		<p>
+			There are several ways to save your work:
+		</p>
+		<ul>
+			<li>Click the <b>Link</b> button found in the upper-left corner of the page.  This acts as
+			a sort of quick-save by updating the address bar and back button history.</li>
+			<li>Copy the URL from the field next to the <b>Link</b> button mentioned above.  
+			Clicking the text field will automatically highlight it for you, allowing for easy
+			Ctrl-C copying.</li>
+			<li>Select <b>Data</b> from the main menu at the top of the page, then select
+			a new or existing slot to save it in.  Data saved in this fashion will persist
+			in between browsing sessions, provided you don't clear cookies or storage.</li>
+		</ul>
+		<p>
+			Please note that no progress is automatically saved for you, so if you
+			navigate away from this page you might loose your work.
+		</p>
+	</div>
+	<div class="pageSection">
+		<h3 id="help-export">Forum Preview and Export</h3>
+		<p>
+			To see what the forum export will look like, select <b>Preview</b> from
+			the top of the page.
+		</p>
+		<p>
+			To generate forum export text, first select <b>Export</b> at the
+			top of the page.  Then pick the type of export:
+		</p>
+			<ul>
+				<li><b>HTML</b> - Default CO forum format (no forum extension)</li>
+				<li><b>BBCode</b> - Format used by the CO forums with the forum extension</li>
+				<li><b>Markdown</b> - Format used by Reddit, Discord, etc</li>
+				<li><b>Plain Text</b> - No special formatting
+			</ul>
+	</div>
+	<div class="pageSection">
+		<h3 id="help-prefs">Preferences</h3>
+		<p>
+			Select <b>Settings</b> from the top of the page to change a few aesthetics, such as
+			font, tooltip behavior, etc.  This data persists using html5 storage.  If your browser
+			doesn't support html5 storage, cookies will be used in a more limited capacity.
+		</p>
+	</div>
+	<div class="pageSection">
+		<h3 id="help-reset">Reset</h3>
+		<p>
+			To clear your current character edits, click the <b>HeroCreator</b> logo in the
+			upper left corner of the page.
+		</p>
+	</div>
+</div>
+<div id="viewAbout" style="display: none;">
+	<h3>About</h3>
+	<div class="pageSection">
+		<p>
+			<h2><a href="http://aesica.net/co/herocreator.htm">HeroCreator</a></h2>
+			<table id="versionTable">
+				<tr>
+					<td>Last Updated:</td>
+					<td><div id="releaseDate"></div></td>
+				</tr>
+				<tr>
+					<td>App Version:</td>
+					<td><div id="appVersion"></div></td>
+				</tr>
+				<tr>
+					<td>Data Version:</td>
+					<td><div id="dataVersion"></div></td>
+				</tr>
+			</table>
+		</p>
+	</div>
+	<div class="pageSection">
+		<p>
+			HeroCreator is an open-source HTML/Javascript character planner for
+			<a href="http://www.champions-online.com/" target="_blank">Champions Online</a>&#0153;
+			that is updated and maintained by Aesica.
+			It is a fork of the much-beloved PowerHouse originally created by
+			Kyle W. T. Sherman.
+		</p>
+		<p>
+			Text descriptions and graphics are Copyright ©2009 Cryptic Studios, Inc.
+			and are used as per their terms of service.
+		</p>
+		<p>
+			This program is free software: you can redistribute it and/or modify
+			it under the terms of the GNU General Public License as published by
+			the Free Software Foundation, either version 3 of the License, or (at
+			your option) any later version.<br />
+		</p>
+		<p>
+			This program is distributed in the hope that it will be useful, but
+			WITHOUT ANY WARRANTY; without even the implied warranty of
+			MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+			See the <a href="http://www.gnu.org/licenses/" target="_blank">GNU General Public
+			License</a> for more details.
+		</p>
+		<p>
+			Champions Online is a registered trademark of Cryptic Studios, Inc.
+			Champions Online and all related content is ©2009 Cryptic Studios, Inc.
+			All Rights Reserved.
+			For information regarding the rights reserved by Cryptic Studios,
+			please read the full <a
+			href="http://www.champions-online.com/terms_of_service">Terms of
+			Service</a>, specifically (but not limited to)
+			section 3. Champions Online game content and materials are trademarks
+			and copyrights of Cryptic Studios, Inc. or its licensors and used with
+			permission. All rights reserved.
+		</p>
+		<p>
+			Special thanks to <a
+			href="http://champions-online-wiki.com/wiki/User:Lohr">Lohr</a> and
+			all of the contributors at
+			<a href="http://champions-online-wiki.com/" target="_blank">Champions Online Wiki</a>
+			for their hard work, and of course to
+			<a href="http://nullware.com/" target="_blank">Kyle Sherman/Nullware</a> for
+			creating  the amazing PowerHouse character planner and making it open source.
+		</p>
+		</div>
+		<div class="pageSection">
+			<p>
+				If you would like to run HeroCreator locally on your computer, download
+				<a href="https://github.com/Aesica/herocreator" target="_blank">the source files</a>, uncompress
+				them on your computer, and use your browser to open the herocreator.htm file.
+			</p>
+		</div>
+		<!-- <span class="invisible"><a onclick="dataDump()">Data Dump</a></span> -->
+		</div>
+		<div id="viewDebug" style="display: none;">
+			<h3>Debug</h3>
+			<div class="pageSection">
+				<b>Data Viewing Functions</b>
+				<hr />
+				<ul>
+					<li><a onclick="Aesica.HCEngine.debugOutputFromInput(Aesica.HCEngine.listPowersFromFramework)">Powers</a> (frameworkID:int|NaN)</li>
+					<li><a onclick="Aesica.HCEngine.debugOutputFromInput(Aesica.HCEngine.listSpecializations)">Specializations</a> (specID:int|NaN)</li>
+					<li><a onclick="Aesica.HCEngine.debugOutputFromInput(Aesica.HCEngine.listTravelPowers)">TravelPowers</a> (type:int|NaN)</li>
+					<li><a onclick="Aesica.HCEngine.debugOutputFromInput(Aesica.HCEngine.listPowerIDsFromNames)">Power IDs From Names</a> (powerNames:String="Power1/Power2/etc")</li>
+					<li><a onclick="Aesica.HCEngine.debugOutputFromInput(Aesica.HCEngine.listTravelPowerIDsFromNames)">Travel Power IDs From Names</a> (travelPowerNames:String="TPower1/TPower2/etc")</li>
+					<li><a onclick="Aesica.HCEngine.debugOutput(Aesica.HCEngine.listTalents(0))">Innate Talents</a></li>
+					<li><a onclick="Aesica.HCEngine.debugOutput(Aesica.HCEngine.listTalents(1))">Talents</a></li>
+					<li><a onclick="Aesica.HCEngine.debugOutput(Aesica.HCEngine.listArchetypes())">Archetypes</a></li>
+				</ul>
+				<hr />
+				<b>Code/Tinkering Functions</b>
+				<hr />
+				<ul>
+					<li><a onclick="Aesica.HCEngine.debugOutputFromInput(eval)">eval(code:String);</a></li>
+					<li><a onclick="Aesica.HCEngine.debugOutputFromInput(btoa)">btoa(value:String);</a></li>
+					<li><a onclick="Aesica.HCEngine.debugOutputFromInput(atob)">atob(base64:String);</a></li>
+					<li><a onclick="Aesica.HCEngine.debugOutput(Aesica.HCEngine.exportArchetypes())">Export Archetypes (temp)</a></li>
+					<li><a onclick="Aesica.HCEngine.debugOutput(Aesica.HCEngine.exportPowers())">Export Powers (hc-data)</a></li>
+					<li><a onclick="Aesica.HCEngine.debugOutput(Aesica.HCEngine.exportPowers(true))">Export Powers Advantages (hc-data)</a></li>
+					<li><a onclick="Aesica.HCEngine.debugOutput(Aesica.HCEngine.exportTPowers())">Export Travel Powers (hc-data)</a></li>
+					<li><a onclick="Aesica.HCEngine.debugOutput(Aesica.HCEngine.exportTPowers(true))">Export Travel Power Advantages (hc-data)</a></li>
+				</ul>
+			</div>
+			<div class="pageSection">
+				<a onclick="Aesica.HCEngine.debugOutput('');"><h2>Clear Window Contents</h2></a>
+				<textarea id="debugoutput"></textarea>
+			</div>
+		</div>
+		<div id="footer" class="footer" style="display:none">
+
+			<span class="note"><a href="http://aesica.net/co/herocreator.htm">HeroCreator</a> is a character planner for <a href="http://www.champions-online.com/" target="_blank">Champions Online</a>&#0153; based on Kyle Sherman's <a href="http://powerhouse.nullware.com/" target="_blank">PowerHouse</a></span>
+
+			<div id="linkref" class="footer">
+				<!-- <div class="linkRef"><span id="buildLinkRef"> </span></div> -->
+			</div>
+		</div>
+	</div>
+</body>
+
+<!-- Mirrored from aesica.net/co/beta/herocreator.htm by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 20 Jun 2025 04:50:48 GMT -->
+</html>
