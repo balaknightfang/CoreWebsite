@@ -573,6 +573,7 @@ const HCData =
 		"SCCD":"Shares a 15 sec cooldown with other, similar Perception Debuff powers.",
 		"Stagger":"Stagger reduces the target's damage resistance by 2% and movement speed by 25% per stack.  Stacks up to 3 times and lasts for 15 sec",
 		"StimPack":"Grants you a short heal over time, healing for an additional amount if your health is low.  This effect shares a short internal cooldown with other similar advantages.",
+		"SuddenStrike":"Sudden Strike increases the severity of your next critical attack and is considered a Chi Energy effect.",
 		"SwallowtailCut":"Swallowtail Cut deals 5% of the target's Health every 2 seconds for 16 seconds.",
 		"Trauma":"Trauma ends any healing over time effects on your target and causes them to receive only 50% benefit from any other incoming heals.",
 		"TWAoE":"Wipes all of your Threat from affected foes, places you in Stealth for 3/4/5 (based on Rank) seconds, and attempts to placate the target, making them unable to attack you.  Placate only works on weaker foes, such as Henchmen, Villains, and Enforcers.  Shares a 30 second cooldown with other Threat Wipe abilities.",
