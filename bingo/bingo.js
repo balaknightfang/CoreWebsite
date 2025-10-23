@@ -1,6 +1,6 @@
 const BINGOS = ["CO is Dead", '"Bolting Fervor is not even that strong"', 
                 '"Oh my god bruh" GIF', "Add New Content", "Ultimax Suggestions",
-                "OV in TA", "Tank Role is Dead", "BPM new tech", "Asking for VOD", 
+                "OV in TA", "Tank Role is Dead", "BPM tech", "Asking for VOD", 
                 "Ooo, heh~", "Ape Fireball", "No one is running rampage", "CO Players failing to read",
                 "Nerf X Powerset", "V", "Retained", "COH", "PVDs should be Nerfed", "MPREG", "Emma Frost", 
                 "Vore", "Kane VS MPH Key War", "INT Glaze", "PA is B Tier", "Ramaster Quote", 
@@ -8,7 +8,10 @@ const BINGOS = ["CO is Dead", '"Bolting Fervor is not even that strong"',
                 "X Powerset needs a buff", "Hybrid Libel", "Jumping Puzzles", "Iniquity", "Ship of Heroes",
                 "Eyes turning Green", "Mag 5 or Bust", "Pets at Cosmics", "Marvel at AH prices", "Add CON form",
                 "Badger Petting", "Caprice Mentioned", "Who allowed this to happen", "Nac's Gator Gifs",
-                "MHA Hoppy GIF", "Emoji Spamming a Good Take", "Perk Unlock", "Don't Try Freak/Thelposting"];
+                "MHA Hoppy GIF", "Emoji Spamming a Good Take", "Perk Unlock", "Don't Try Freak/Thelposting",
+                "Comparisons to RotMG made", "OM Scoreposting", "Instanced Cosmics", "Grox is this real?",
+                "Grox Shills TA", "Ramaster's Soul COllection", "Bring Back Dev Mama/Deca Doomsaying", "Abandoned Dino",
+                "Size Fun", "Mini-mag request"];
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
